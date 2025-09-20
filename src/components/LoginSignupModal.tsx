@@ -140,7 +140,8 @@ const LoginSignupModal: React.FC<LoginSignupModalProps> = ({ isOpen, onClose }) 
 
     try {
       // Check if user exists with this username
-      const response = await fetch(`http://localhost:3001/api/users/email/${loginData.username}`);
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${apiUrl}/api/users/email/${loginData.username}`);
       
       if (response.ok) {
         const userData = await response.json();
