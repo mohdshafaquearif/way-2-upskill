@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -62,7 +63,8 @@ const UserLanding = () => {
     setIsLoading(true);
     try {
       // Fetch real data from API
-      const response = await fetch(`http://localhost:3001/api/users/${user.id}/courses`);
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${apiUrl}/api/users/${user.id}/courses`);
       
       if (response.ok) {
         const courses = await response.json();
@@ -245,10 +247,10 @@ const UserLanding = () => {
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-3xl font-bold text-gray-900">My Courses</h2>
             <Button asChild>
-              <a href="/courses">
+              <Link to="/courses">
                 Browse More Courses
                 <ArrowRight className="w-4 h-4 ml-2" />
-              </a>
+              </Link>
             </Button>
           </div>
 
@@ -326,11 +328,11 @@ const UserLanding = () => {
                 </p>
                 <div className="space-y-4">
                   <Button asChild size="lg" className="w-full sm:w-auto">
-                    <a href="/courses">Browse Available Courses</a>
+                    <Link to="/courses">Browse Available Courses</Link>
                   </Button>
                   <div className="text-center">
                     <Button asChild variant="outline" size="lg">
-                      <a href="/enroll">Enroll Now</a>
+                      <Link to="/enroll">Enroll Now</Link>
                     </Button>
                   </div>
                 </div>
