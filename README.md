@@ -10,7 +10,7 @@ There are several ways of editing your application.
 
 **Use Lovable**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/18a9f05d-fd10-47d0-b626-06c0644e867a) and start prompting.
+Simply visit the [Lovable Project](https://way-2-upskill-careers.vercel.app/) and start prompting.
 
 Changes made via Lovable will be committed automatically to this repo.
 
