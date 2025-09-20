@@ -68,13 +68,15 @@ const AdminDashboard = () => {
   const fetchDashboardData = async () => {
     setIsLoading(true);
     try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      
       // Fetch users
-      const usersResponse = await fetch('http://localhost:3001/api/admin/users');
+      const usersResponse = await fetch(`${apiUrl}/api/admin/users`);
       const usersData = await usersResponse.json();
       setUsers(usersData);
 
       // Fetch enrollments
-      const enrollmentsResponse = await fetch('http://localhost:3001/api/admin/enrollments');
+      const enrollmentsResponse = await fetch(`${apiUrl}/api/admin/enrollments`);
       const enrollmentsData = await enrollmentsResponse.json();
       setEnrollments(enrollmentsData);
 
